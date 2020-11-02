@@ -42,4 +42,19 @@ class CityListTest {
         cityList.delete(city);
         assertEquals(1, cityList.getCities().size());
     }
+
+    @Test
+    void testCountProvinces() {
+        CityList cityList = mockCityList();
+
+        assertEquals(1, cityList.countProvinces());
+
+        City toronto = new City("Toronto", "Ontario");
+        cityList.add(toronto);
+        assertEquals(2, cityList.countProvinces());
+
+        City ottawa = new City("Ottawa", "Ontario");
+        cityList.add(ottawa);
+        assertEquals(2, cityList.countProvinces());
+    }
 }
